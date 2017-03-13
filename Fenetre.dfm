@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 336
-  Top = 243
+  Left = 534
+  Top = 184
   Width = 934
   Height = 620
   Caption = 'HariboPhone (K'#233'vin GUIOT TSN'#176'2)'
