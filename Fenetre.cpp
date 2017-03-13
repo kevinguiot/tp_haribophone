@@ -544,11 +544,18 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 
 
 
-
+//Gestion du son
 void __fastcall TForm1::Button2Click(TObject *Sender)
 {
-        TimerJouer->Enabled = true;
-        Image1->Visible = true;
+        //Si le timer n'est pas encore lancé
+        if(TimerJouer->Enabled == false) {
+                TimerJouer->Enabled = true;
+                Image1->Visible = true;
+                Button2->Caption = "Arrêter le son";
+        } else {
+                TimerJouer->Enabled = false;
+                Button2->Caption = "Jouer le son";
+        }
 }
 //---------------------------------------------------------------------------
 
