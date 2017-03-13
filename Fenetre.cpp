@@ -475,9 +475,17 @@ void __fastcall TForm1::TimerJouerTimer(TObject *Sender)
 {
 
 
-        if(compteurMusique > 7) {
+        //On ne fait qu'une seule boucle
+        if(compteurMusique == 8) {
                 compteurMusique = 0;
-        }
+
+                //On arrête le timer
+                TimerJouer->Enabled = false;
+
+                        } else {
+
+
+
 
         int PositionImage = 0;
         PositionImage = Image1->Left;
@@ -508,6 +516,18 @@ void __fastcall TForm1::TimerJouerTimer(TObject *Sender)
 
 
         compteurMusique++;
+        }
+
+
+        if(TimerJouer->Enabled == true) {
+                Button2->Caption = "Arrêter le son";
+                Image1->Visible = true;
+        } else {
+                Button2->Caption = "Jouer le son";
+        }
+
+
+
 }
 //---------------------------------------------------------------------------
 
@@ -543,18 +563,18 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 //---------------------------------------------------------------------------
 
 
-
 //Gestion du son
 void __fastcall TForm1::Button2Click(TObject *Sender)
 {
         //Si le timer n'est pas encore lancé
         if(TimerJouer->Enabled == false) {
                 TimerJouer->Enabled = true;
-                Image1->Visible = true;
                 Button2->Caption = "Arrêter le son";
         } else {
                 TimerJouer->Enabled = false;
+                 Image1->Visible = true;
                 Button2->Caption = "Jouer le son";
+                //Button2->Caption = "Jouer le son";
         }
 }
 //---------------------------------------------------------------------------
